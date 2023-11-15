@@ -11,4 +11,5 @@ def nuclear_luncher() -> Response:
     """Entry point."""
     return Response("<p>Hello, World!</p>")
 
+
 register_dash_pages(app=app)
