@@ -10,6 +10,9 @@ python = "^3.11"
 flask = "^3.0.0"
 plotly = "^5.18.0"
 dash = "^2.14.1"
+alembic = "^1.12.1"
+flask-sqlalchemy = "^3.1.1"
+sqlalchemy = {extras = ["mypy"], version = "^2.0.23"}
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
@@ -26,3 +29,79 @@ pre-commit = "^3.5.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 170
+select = [  # https://beta.ruff.rs/docs/rules
+  "A",      # flake8-builtins
+  "ARG",    # flake8-unused-arguments
+  "ASYNC",  # flake8-async
+  "B",      # flake8-bugbear
+  "BLE",    # flake8-blind-except
+  "C4",     # flake8-comprehensions
+  "C90",    # McCabe cyclomatic complexity
+  "DTZ",    # flake8-datetimez
+  "E",      # pycodestyle
+  "EM",     # flake8-errmsg
+  "EXE",    # flake8-executable
+  "F",      # Pyflakes
+  "FA",     # flake8-future-annotations
+  "FLY",    # flynt
+  "G",      # flake8-logging-format
+  "I",      # isort
+  "ICN",    # flake8-import-conventions
+  "INP",    # flake8-no-pep420
+  "INT",    # flake8-gettext
+  "N",      # pep8-naming
+  "NPY",    # NumPy-specific rules
+  "PGH",    # pygrep-hooks
+  "PIE",    # flake8-pie
+  "PL",     # Pylint
+  "PYI",    # flake8-pyi
+  "RSE",    # flake8-raise
+  "RUF",    # Ruff-specific rules
+  "S",      # flake8-bandit
+  "SIM",    # flake8-simplify
+  "SLF",    # flake8-self
+  "T10",    # flake8-debugger
+  "TD",     # flake8-todos
+  "TID",    # flake8-tidy-imports
+  "UP",     # pyupgrade
+  "W",      # pycodestyle
+  "YTT",    # flake8-2020
+  "ANN",    # flake8-annotations  
+  "COM",    # flake8-commas
+  "D",      # pydocstyle 
+  "DJ",     # flake8-django
+  "ERA",    # eradicate
+  "FBT",    # flake8-boolean-trap
+  "ISC",    # flake8-implicit-str-concat 
+  "PD",     # pandas-vet
+  "PT",     # flake8-pytest-style
+  "PTH",    # flake8-use-pathlib
+  "Q",      # flake8-quotes
+  "RET",    # flake8-return  
+  "T20",    # flake8-print
+  "TCH",    # flake8-type-checking
+  "TRY",    # tryceratops
+]
+show-source = true
+target-version = "py311"
+exclude = [
+  "tests",
+  "functional_tests",
+  "alembic",
+]
+ignore = [
+  "D203",
+  "D202",
+  "D212",
+  "D407",
+  "PTH123", # pathlib-open - this would force pathlib usage anytime open or with open was used.
+  "C901",
+  "PLR0911",
+  "PD002",
+]
+
+[tool.ruff.isort]
+section-order = ["future", "standard-library", "first-party", "third-party", "local-folder"]
