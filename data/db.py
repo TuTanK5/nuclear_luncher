@@ -1,12 +1,12 @@
 """Database query codes."""
 
-from data.models import Ingredient, Recipe
+from data.models import Ingredient, Recipe  # noqa: F401
 
 
-def get_ingredients() -> list[Ingredient]:
+def get_ingredients() -> dict[str, str]:
     """Query list of ingredients from db."""
 
-    return [Ingredient(id=1, name="ig1", unit="kg")]
+    return {"id": "1", "name": "name", "unit": "kg"}
 
 
 def get_recipes() -> list[Recipe]:
