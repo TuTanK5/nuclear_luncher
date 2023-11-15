@@ -6,21 +6,11 @@ from sqlalchemy.orm import DeclarativeBase
 
 
 class Base(DeclarativeBase):
-    """
-    Base sqlalchemy ORM model.
-
-    Args:
-        DeclarativeBase (_type_): _description_
-    """
+    """Base sqlalchemy ORM model."""
 
 
 class Ingredient(Base):
-    """
-    Ingredient table model.
-
-    Args:
-        Base (_type_): _description_
-    """
+    """Ingredient table model."""
 
     __tablename__ = "ingredient"
 
@@ -30,12 +20,7 @@ class Ingredient(Base):
 
 
 class Dishes(Base):
-    """
-    Dishes table model.
-
-    Args:
-        Base (_type_): _description_
-    """
+    """Dishes table model."""
 
     __tablename__ = "dishes"
 
@@ -44,12 +29,7 @@ class Dishes(Base):
 
 
 class Recipe(Base):
-    """
-    Recipe table model.
-
-    Args:
-        Base (_type_): _description_
-    """
+    """Recipe table model."""
 
     __tablename__ = "recipe"
 
